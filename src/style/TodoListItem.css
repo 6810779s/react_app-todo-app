@@ -8,27 +8,27 @@
   background: #f8f9fa;
 }
 
-.TodoListItem .checkBox {
+.TodoListItem .checkbox {
   cursor: pointer;
   flex: 1;
   display: flex;
   align-items: center;
 }
 
-.TodoListItem .checkBox svg {
+.TodoListItem .checkbox svg {
   font-size: 1.5rem;
 }
 
-.TodoListItem .checkBox .text {
+.TodoListItem .checkbox .text {
   margin-left: 0.5rem;
   flex: 1;
 }
 
-.TodoListItem .checkBox.checked svg {
+.TodoListItem .checkbox.checked svg {
   color: #22b8cf;
 }
 
-.TodoListItem .checkBox.checked .text {
+.TodoListItem .checkbox.checked .text {
   color: #adb5bd;
   text-decoration: line-through;
 }
