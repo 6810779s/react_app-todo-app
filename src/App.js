@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useRef, useState } from 'react';
+import React, { useCallback, useReducer, useRef } from 'react';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 import TodoTemplate from './components/TodoTemplate';
@@ -32,7 +32,7 @@ function todoReducer(todos, action) {
 
 const App = () => {
   // const [todos, setTodos] = useState(createBulkTodos);
-  const [todos, setTodos] = useReducer(todoReducer, undefined, createBulkTodos);
+  const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
   //   [
   //   {
   //     id: 1,
@@ -59,18 +59,18 @@ const App = () => {
       text,
       checked: false,
     };
-    dispatchEvent({ type: 'Insert', todo });
+    dispatch({ type: 'Insert', todo });
     // setTodos((todos) => todos.concat(todo));
     nextId.current += 1;
   }, []);
 
   const onRemove = useCallback((id) => {
-    dispatchEvent({ type: 'REMOVE', id });
+    dispatch({ type: 'REMOVE', id });
     // setTodos((todos) => todos.filter((todo) => todo.id !== id));
   }, []);
 
   const onToggle = useCallback((id) => {
-    dispatchEvent({ type: 'TOGGLE', id });
+    dispatch({ type: 'TOGGLE', id });
     // setTodos((todos) =>
     //   todos.map((todo) =>
     //     todo.id === id ? { ...todo, checked: !todo.checked } : todo,

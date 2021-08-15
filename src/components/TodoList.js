@@ -10,15 +10,27 @@ const TodoList = ({ todos, onRemove, onToggle }) => {
       return (
         <TodoListItem
           todo={todo}
-          key={todo.id}
+          key={key}
           onRemove={onRemove}
           onToggle={onToggle}
+          style={style}
         />
       );
     },
     [todos, onRemove, onToggle],
   );
-  return <List className="TodoList" width={512} height={513} />;
+  return (
+    <List
+      className="TodoList"
+      width={512}
+      height={320}
+      rowCount={todos.length}
+      rowHeight={57}
+      rowRenderer={rowRenderer}
+      list={todos}
+      style={{ outline: 'none' }}
+    />
+  );
 };
 
-export default React.meno(TodoList);
+export default React.memo(TodoList);
