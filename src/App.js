@@ -5,7 +5,7 @@ import TodoTemplate from './components/TodoTemplate';
 
 function createBulkTodos() {
   const array = [];
-  for (let i = 1; i <= 2500; i++) {
+  for (let i = 1; i <= 0; i++) {
     array.push({
       id: i,
       text: `할 일 ${i}`,
@@ -52,14 +52,14 @@ const App = () => {
   // ]);
 
   // const nextId = useRef(4);
-  const nextId = useRef(2501);
+  const nextId = useRef(1);
   const onInsert = useCallback((text) => {
     const todo = {
       id: nextId.current,
       text,
       checked: false,
     };
-    dispatch({ type: 'Insert', todo });
+    dispatch({ type: 'INSERT', todo });
     // setTodos((todos) => todos.concat(todo));
     nextId.current += 1;
   }, []);
